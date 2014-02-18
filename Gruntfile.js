@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 
 	var  cssF = STYLE_DIR  + "style.css";
 	var  scssF = SCSS_DIR + "style.scss";
-
+	var simplebuild = require("./extensions/simplebuild-ext-gruntify.js")(grunt);
 	var config = 	{
 		pkg: grunt.file.readJSON('package.json')
 		,   sass: {
@@ -24,7 +24,10 @@ module.exports = function(grunt) {
 				files : {
 					src: [JS_DIR + "*.js", TEST_DIR + "*.js"]
 					}
-				,	options: lintOptions()
+			,	options: lintOptions()
+			}
+		,   Mocha: {
+				files: [ TEST_DIR + "/*.js", "!node_modules/**/*"]
 			}
 		,   browserify: {
 				client: {
@@ -39,22 +42,18 @@ module.exports = function(grunt) {
 				}
 			}
 		,   watch:{
-				jshint:{
+				js: {
 					files: [ TEST_DIR + "*.js", JS_DIR + "*.js"]
-				,   tasks: ['jshint']
+				,   tasks: ['jshint', 'browserify', 'mocha']
 				}
-			,   sass: {
+			,   style : {
 					tasks: ['sass:dist']
-				,	files: ["./public/scss/*.scss"]
+				,	files: ["./public/scss*//*.scss"]
 				}
-			,   browserify: {
-						tasks: ['browserify']
-					,   files : [TEST_DIR + "*.js", JS_DIR + "*.js"]
-					}
 			,   livereload: {
 					files : [ STYLE_DIR + "*.css", VIEWS_DIR + "**/*.hbs", BUNDLE_DIR + "*.js"]
 				,	options: {
-					livereload: true
+						livereload: true
 				}
 			}
 		}
@@ -63,14 +62,9 @@ module.exports = function(grunt) {
 	//because you can't use expressions for identifiers in an object literal
 	config["sass"]["dist"]["files"][cssF] = scssF;
 
-
-
-
-
-
 	grunt.initConfig( config );
 
-
+	simplebuild.loadNpmTasks("../config/simplebuild-mocha.js");
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -80,6 +74,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('bundle_cli', "Browserify I choose you!", ["browserify:client"]);
 	grunt.registerTask('bundle_test', "Browserify I choose you!", ["browserify:test"]);
 	grunt.registerTask("lint", "Lint!", ["jshint"]);
+	grunt.registerTask("mocha", "Test!", ["Mocha"]);
 	grunt.registerTask("default", 'That income tax swag', ['sass:dist']);
 
 };
@@ -110,6 +105,10 @@ function lintOptions() {
 		strict: true,
 		globals : {
 			jquery : true
+		,   expect : true
+		,   mocha : true
+		,   describe : true
+		,   it : true
 		}
 	};
 }

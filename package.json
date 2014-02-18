@@ -13,7 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "express-hbs": "~0.7.9",
-    "browserify": "~3.30.1"
+    "browserify": "~3.30.1",
+    "glob": "~3.2.8"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
