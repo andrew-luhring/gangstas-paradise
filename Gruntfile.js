@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 
 				js: {
 					files: [ TEST_DIR + "*.js", JS_DIR + "*.js"]
-				,   tasks: ['jshint', 'browserify', 'karma:unit:run', 'mocha']
+				,   tasks: ['jshint', 'browserify', 'karma:unit:run', 'Mocha']
 				}
 			,   style : {
 					tasks: ['sass:dist']
@@ -77,12 +77,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browserify');
 	grunt.loadNpmTasks('grunt-karma');
-
-	grunt.registerTask('bundle', "Browserify I choose you!", ["browserify:client", "browserify:test"]);
-	grunt.registerTask('bundle_cli', "Browserify I choose you!", ["browserify:client"]);
-	grunt.registerTask('bundle_test', "Browserify I choose you!", ["browserify:test"]);
-	grunt.registerTask("lint", "Lint!", ["jshint"]);
-	grunt.registerTask("mocha", "Test!", ["Mocha"]);
+	grunt.registerTask('bundle_cli', "Browserify only client files!", ["browserify:client"]);
+	grunt.registerTask('bundle_test', "Browserify only test files!", ["browserify:test"]);
 	grunt.registerTask("default", 'That income tax swag', ['sass:dist']);
 
 };
