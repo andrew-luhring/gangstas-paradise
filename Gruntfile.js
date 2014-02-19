@@ -26,6 +26,12 @@ module.exports = function(grunt) {
 					}
 			,	options: lintOptions()
 			}
+		,   karma: {
+				unit: {
+					configFile: './karma.conf.js'
+				,   background: true
+				}
+			}
 		,   Mocha: {
 				files: [ TEST_DIR + "/*.js", "!node_modules/**/*"]
 			}
@@ -42,9 +48,10 @@ module.exports = function(grunt) {
 				}
 			}
 		,   watch:{
+
 				js: {
 					files: [ TEST_DIR + "*.js", JS_DIR + "*.js"]
-				,   tasks: ['jshint', 'browserify', 'mocha']
+				,   tasks: ['jshint', 'browserify', 'karma:unit:run', 'mocha']
 				}
 			,   style : {
 					tasks: ['sass:dist']
@@ -69,6 +76,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('bundle', "Browserify I choose you!", ["browserify:client", "browserify:test"]);
 	grunt.registerTask('bundle_cli', "Browserify I choose you!", ["browserify:client"]);
@@ -109,6 +117,8 @@ function lintOptions() {
 		,   mocha : true
 		,   describe : true
 		,   it : true
+		,   beforeEach: true
+		,   afterEach : true
 		}
 	};
 }

@@ -39,6 +39,11 @@
     "grunt-mocha": "~0.4.10",
     "expect.js": "~0.2.0",
     "jsdom": "~0.10.1",
-    "grunt-karma": "~0.6.2"
+    "grunt-karma": "~0.6.2",
+    "karma-mocha": "~0.1.1",
+    "karma-unicorn-reporter": "~0.1.4",
+    "karma-growl-reporter": "~0.1.1",
+    "growl": "~1.7.0",
+    "karma-commonjs": "0.0.6"
   }
 }
