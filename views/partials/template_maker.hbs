@@ -1,0 +1,128 @@
+<script type="text/javascript" src="lib/angular.js"></script>
+<script type="text/javascript">
+
+	angular.module('dft', []).config(function($interpolateProvider){
+				$interpolateProvider.startSymbol('[[').endSymbol(']]');
+			}
+	);
+	function Ctrl($scope) {
+
+		$scope.Scss   =  { name: 'scss', url: 'ang/scss.html'};
+		$scope.Js       =  { name: 'js', url: 'ang/js.html'};
+		$scope.Hbs    = { name: 'hbs', url: 'ang/hbs.html'};
+	}
+</script>
+<section id="template" ng-controller="Ctrl" >
+	<header class="page_headline">
+		<h1>ConTemplate</h1>
+	</header>
+	<fieldset ng-model="existance" id="existance">
+		<legend >first things first. what do you <em>need?</em></legend>
+		<div>
+			<label for="scss">I need <strong>style</strong>! <span class="tooltip"  role="tooltip"> ( we're all glad you're aware of it. nobody wanted to say anything. )</span></label>
+			<input type="checkbox" name="prepare"  value="true" ng-checked="true" ng-model="Scss" />
+		</div>
+		<div>
+			<label for="js">I need <strong>behavior</strong>! <span class="tooltip"  role="tooltip">( what you <em>need</em> to do is calm down.. )</span></label>
+			<input type="checkbox" name="prepare" ng-model="Js" />
+		</div>
+		<div>
+			<label for="hbs">I need <strong>content</strong> and whatnot!  <span class="tooltip"  role="tooltip"> ( calm down, dude. there's no need for exclamation marks. i'm right here. ) </span></label>
+			<input type="checkbox" name="prepare" ng-model="Hbs" />
+		</div>
+	</fieldset>
+
+
+	<div class="slide-animate-container">
+		<div class="slide-animate" ng-include="Scss.url"></div>
+		<div class="slide-animate" ng-include="Js.url"></div>
+		<div class="slide-animate" ng-include="hbs.url"></div>
+	</div>
+</section>
+<!--
+	<div ng-controller="Ctrl">
+		//this may screw up because the ng-models up there^ are Scss, Js and Hbs.
+		<select ng-model="template" ng-options="t.name for t in templates">
+			<option value="">(blank)</option>
+		</select>
+		url of the template: <tt>
+		<hr/>
+		<div class="slide-animate-container">
+			<div class="slide-animate" ng-include="template.url"></div>
+		</div>
+	</div>-->
+
+<!--	function Ctrl($scope) {
+	$scope.instances =  [
+		{ name: 'scss', url: '/ang/scss.html'}
+	,   { name: 'js', url: '/ang/js.html'}
+	,   { name: 'hbs', url: '/ang/hbs.html'}
+	];
+	$scope.existance = $scope.instances[0];
+	}-->
+
+
+<!--	<fieldset ng-model="scss">
+		<legend>your scss file</legend>
+		<div class="file_name">
+			<label for="scss_filename">will be named:</label>
+			<input name="scss_filename" type="text" ng-model="scss.name"/>
+		</div>
+		[[scss.name]]
+		<fieldset>
+			<legend>and it will be a... partial? </legend>
+			<div>
+				<label>Hell yes it will be!<span class="tooltip"  role="tooltip"> ( it will be a partial )</span></label>
+				<input type="radio" name="scss_file_partial" ng-model="scss.partial" value="true" />
+			</div>
+			<div>
+				<label>Like hell it will be! <span class="tooltip"  role="tooltip"> ( it won't be a partial)</span></label>
+				<input type="radio" name="scss_file_partial" ng-model="scss.partial" value="false" />
+			</div>
+		</fieldset>
+		</label>
+	</fieldset>
+	<fieldset ng-model="js">
+		<legend>Your js file</legend>
+
+		<div class="file_name">
+			<label for="js_filename">will be named:</label>
+			<input name="js_filename" type="text" ng-model="js.name"/>
+		</div>
+		[[js.name]]
+
+		<fieldset>
+			<legend> You're going to need to test it, right? </legend>
+			<div>
+				<label>What? Did you think this was some kind of game?! This is REAL LIFE- not some world full of... nice... things!  <span class="tooltip"  role="tooltip"> ( well...at least you have a computer that loves you. )</span></label>
+				<input type="radio" name="js_test" ng-model="js.test" value="true" />
+			</div>
+			<div>
+				<label>No way! I'm on a mission sent by God - nothing will go wrong and nothing will stand in my way! <span class="tooltip"  role="tooltip"> ( ...i'll take that s a no. )</span></label>
+				<input type="radio" name="js_test" ng-model="js.test" value="false" />
+			</div>
+
+		</fieldset>
+		</label>
+	</fieldset>
+	<fieldset ng-model="hbs">
+		<legend>Your hbs file</legend>
+		<div class="file_name">
+			<label for="hbs_filename">will be named:</label>
+			<input name="hbs_filename" type="text" ng-model="hbs.name"/>
+		</div>
+		[[hbs.name]]
+		<fieldset>
+			<legend>and it will be a partial</legend>
+			<div>
+				<label>Hell yes it will be!<span class="tooltip"  role="tooltip"> ( it will be a partial)</span></label>
+				<input type="radio" name="hbs_partial" value="true" />
+			</div>
+			<div>
+				<label>Like hell it will be! <span class="tooltip"  role="tooltip"> ( it won't be a partial)</span></label>
+				<input type="radio" name="hbs_partial" value="false" />
+			</div>
+		</fieldset>
+	</fieldset>-->
+
+</section>

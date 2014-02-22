@@ -1,10 +1,6 @@
 /*global beforeEach afterEach*/
 var expect = require('../lib/expect');
 
-
-
-
-
 (function(){
 	"use strict";
 	describe("this meta test", function(){

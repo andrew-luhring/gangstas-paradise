@@ -1,0 +1,23 @@
+<fieldset ng-model="js">
+	<legend>Your js file</legend>
+
+	<div class="file_name">
+		<label for="js_filename">will be named:</label>
+		<input id="js_filename" type="text" ng-model="js.name"/>
+	</div>
+	[[js.name]]
+
+	<fieldset>
+		<legend> You're going to need to test it, right? </legend>
+		<div>
+			<label>What? Did you think this was some kind of game?! This is REAL LIFE- not some world full of... nice... things!  <span class="tooltip"  role="tooltip"> ( well...at least you have a computer that loves you. )</span></label>
+			<input type="radio" name="js_test" ng-model="js.test" value="true" />
+		</div>
+		<div>
+			<label>No way! I'm on a mission sent by God - nothing will go wrong and nothing will stand in my way! <span class="tooltip"  role="tooltip"> ( ...i'll take that s a no. )</span></label>
+			<input type="radio" name="js_test" ng-model="js.test" value="false" />
+		</div>
+
+	</fieldset>
+	</label>
+</fieldset>

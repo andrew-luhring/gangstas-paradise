@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="dft">
 <head>
 	<title>Get it in.</title>
-	<link rel="stylesheet" href="css/style.css" />
-</head>
+	{{>head}}
 <body>
-{{{body}}}
+	{{>nav}}
+	<main>
+		{{{body}}}
+	</main>
+	{{>end_scripts}}
 </body>
 </html>

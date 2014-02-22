@@ -1,0 +1,20 @@
+<fieldset ng-model="scss">
+	<legend>your scss file</legend>
+	<div class="file_name">
+		<label for="scss_filename">will be named:</label>
+		<input id="scss_filename" type="text" ng-model="scss.name"/>
+	</div>
+	[[scss.name]]
+	<fieldset>
+		<legend>and it will be a... partial? </legend>
+		<div>
+			<label>Hell yes it will be!<span class="tooltip"  role="tooltip"> ( it will be a partial )</span></label>
+			<input type="radio" name="scss_file_partial" ng-model="scss.partial" value="true" />
+		</div>
+		<div>
+			<label>Like hell it will be! <span class="tooltip"  role="tooltip"> ( it won't be a partial)</span></label>
+			<input type="radio" name="scss_file_partial" ng-model="scss.partial" value="false" />
+		</div>
+	</fieldset>
+	</label>
+</fieldset>

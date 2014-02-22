@@ -1,0 +1,20 @@
+<fieldset ng-model="hbs">
+	<legend>Your hbs file</legend>
+	<div class="file_name">
+		<label for="hbs_filename">will be named:</label>
+		<input id="hbs_filename" type="text" ng-model="hbs.name"/>
+	</div>
+	[[hbs.name]]
+	<fieldset>
+		<legend>and it will be a partial</legend>
+		<div>
+			<label>Hell yes it will be!<span class="tooltip"  role="tooltip"> ( it will be a partial)</span></label>
+			<input type="radio" name="hbs_partial" value="true" />
+		</div>
+		<div>
+			<label>Like hell it will be! <span class="tooltip"  role="tooltip"> ( it won't be a partial)</span></label>
+			<input type="radio" name="hbs_partial" value="false" />
+		</div>
+	</fieldset>
+	</label>
+</fieldset>

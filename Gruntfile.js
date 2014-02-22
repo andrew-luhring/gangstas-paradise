@@ -44,6 +44,7 @@ module.exports = function(grunt) {
 				}
 			,   test: {
 					src: TEST_DIR + "_script.js"
+
 				,   dest: BUNDLE_DIR + "_bundle.js"
 				}
 			}
@@ -55,7 +56,7 @@ module.exports = function(grunt) {
 				}
 			,   style : {
 					tasks: ['sass:dist']
-				,	files: ["./public/scss*//*.scss"]
+				,	files: ["./public/scss/**/*.scss"]
 				}
 			,   livereload: {
 					files : [ STYLE_DIR + "*.css", VIEWS_DIR + "**/*.hbs", BUNDLE_DIR + "*.js"]
@@ -82,8 +83,6 @@ module.exports = function(grunt) {
 	grunt.registerTask("default", 'That income tax swag', ['sass:dist']);
 
 };
-
-
 function lintOptions() {
 	"use strict";
 	return {

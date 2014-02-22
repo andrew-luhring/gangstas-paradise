@@ -1,24 +1,10 @@
-// Karma configuration
-// Generated on Tue Feb 18 2014 23:52:29 GMT-0600 (CST)
-
 module.exports = function(config) {
   config.set({
-
-    // base path, that will be used to resolve files and exclude
     basePath: '',
-
-
-    // frameworks to use
     frameworks: ['mocha', 'commonjs'],
-
-
-    // list of files / patterns to load in the browser
     files: [
       './public/**/*.js'
     ],
-
-
-    // list of files to exclude
     exclude: [
 	    './public/min/*.js'
     ],
@@ -27,10 +13,7 @@ module.exports = function(config) {
 		  'public/js/*.js': ['commonjs'],
 		  'public/tests/*.js': ['commonjs']
 	  },
-
-    // test results reporter to use
-    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+    reporters: ['unicorn', 'growl'],
 
 
     // web server port
@@ -78,10 +61,6 @@ module.exports = function(config) {
 		  'karma-phantomjs-launcher',
 		  'karma-commonjs',
 		  'karma-unicorn-reporter'
-
 	  ]
-
-
-
   });
 };
