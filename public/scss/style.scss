@@ -11,3 +11,28 @@
 .remove{
 	display: none !important;
 }
+
+
+
+// Div
+//
+// A dude went to the river.
+// 
+// Markup:
+// <div href="#" class="swag {$modifiers}">Link Button</div>
+// 
+// .swag	             - Indicate so much swag.
+// .dark	        - Indicate it's dark.
+// :hover               - Highlight the button when hovered.
+// :disabled            - Make the button change appearance to reflect it being disabled.
+// :active              - "Press" the button down when clicked.
+//
+// Styleguide 1.1
+.swag{
+	background: red;
+	&.primary{
+		background:green;
+	}
+
+
+}

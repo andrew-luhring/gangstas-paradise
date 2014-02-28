@@ -32,6 +32,11 @@ module.exports = function(grunt) {
 				,   background: true
 				}
 			}
+		,   shell: {
+		            kss:{
+		                command: 'node node_modules/.bin/kss-node public/scss public/style --sass'
+		            }
+	            }
 		,   Mocha: {
 				files: [ TEST_DIR + "/*.js", "!node_modules/**/*"]
 			}
@@ -72,15 +77,19 @@ module.exports = function(grunt) {
 
 	grunt.initConfig( config );
 
+
 	simplebuild.loadNpmTasks("../config/simplebuild-mocha.js");
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browserify');
 	grunt.loadNpmTasks('grunt-karma');
+	grunt.loadNpmTasks('grunt-shell');
 	grunt.registerTask('bundle_cli', "Browserify only client files!", ["browserify:client"]);
 	grunt.registerTask('bundle_test', "Browserify only test files!", ["browserify:test"]);
 	grunt.registerTask("default", 'That income tax swag', ['sass:dist']);
+
+
 
 };
 function lintOptions() {
