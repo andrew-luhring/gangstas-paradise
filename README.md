@@ -1,18 +1,24 @@
-
 Gangstas Paradise
 ==============
 
-
-Express, Handlebars, Grunt, Angular, Chai, Mocha*, Browserify / Commonjs, Jshint, Karma*
-----------
+If this is the best of all possible worlds, this seed / template will include all of the following:
 
 
-and a whole slew of other things** to make your live easier***.
-
+| purpose | framework / language / option |
+|  :-------------------------  |  :---------------------------------  |
+| server        |  express.js |
+| renderer/engine |  express-hbs |
+| module format | commonjs + browserify |
+| runner | grunt |
+| test-runner | mocha* |
+| reporter | nyan* ...  don't hate, nyan makes me smile when I'm frustrated. |
+| test-runner-runner | karma* |
+| assertions | expect |
+| fun stuff | angular & jquery |
+| styleguide | grunt-styleguide |
 
 
 *( soon to come )
 
-**(probably not that many more)
 
-***(hopefully)
+Right now Mocha and Karma aren't working. BUT I'm close.
